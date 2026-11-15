@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jifju3vowwfw" path="res://subject/TR.png" id="5_ifdhf"]
 [ext_resource type="Script" uid="uid://dvran4oxk3slo" path="res://tscn/area_2d.gd" id="5_v042m"]
 [ext_resource type="Script" uid="uid://bbqxgblxoqrl3" path="res://tscn/pickup_item.gd" id="7_wu76d"]
+[ext_resource type="Texture2D" uid="uid://dx86jexhk7yib" path="res://subject/camera.png" id="8_av7lm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fg8lg"]
 radius = 101.61
@@ -24,6 +25,10 @@ height = 132.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(120, 266)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yegu"]
+radius = 29.0
+height = 74.0
 
 [node name="Game_scene1" type="Node2D" unique_id=1380227353]
 script = ExtResource("1_3pfi2")
@@ -81,3 +86,14 @@ item_to_drop = NodePath("../Item")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1283585628]
 position = Vector2(1168, 381)
 shape = SubResource("RectangleShape2D_4kxuq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2015615853]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=947006813]
+position = Vector2(1241, 552)
+shape = SubResource("CapsuleShape2D_1yegu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1293959452]
+position = Vector2(1238, 550)
+scale = Vector2(0.027343744, 0.025634773)
+texture = ExtResource("8_av7lm")
