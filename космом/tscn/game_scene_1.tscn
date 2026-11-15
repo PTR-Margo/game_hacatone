@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://3yqgpctgit1n" path="res://subject/scaner.png" id="18_5xcqf"]
 [ext_resource type="Script" uid="uid://7n21sqkdurqa" path="res://tscn/door_6.gd" id="19_5xcqf"]
 [ext_resource type="Texture2D" uid="uid://di601memx55b7" path="res://Untitled188_20261114144724.png" id="20_hjgj3"]
+[ext_resource type="Script" uid="uid://drnn20wuhettu" path="res://tscn/canvas_layer_2.gd" id="27_vxhkl"]
+[ext_resource type="Texture2D" uid="uid://cki0vvlgq5fi0" path="res://Футуристична неонова рамка HUD.png" id="28_7nath"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fg8lg"]
 radius = 51.0
@@ -62,7 +64,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg8lg"]
@@ -135,7 +137,9 @@ shape = SubResource("CapsuleShape2D_fg8lg")
 position = Vector2(7.9999847, 6.0000057)
 scale = Vector2(0.17740642, 0.2227895)
 sprite_frames = SubResource("SpriteFrames_fg8lg")
-animation = &"idle"
+animation = &"run"
+frame = 1
+frame_progress = 0.06622256
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2058692736]
 
@@ -295,8 +299,33 @@ shape = SubResource("CircleShape2D_yvsax")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 117.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0228844, 1)
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
+
+[node name="dialog1" type="CanvasLayer" parent="." unique_id=1982521908]
+script = ExtResource("27_vxhkl")
+
+[node name="TextureRect" type="TextureRect" parent="dialog1" unique_id=1558521315]
+self_modulate = Color(1, 1, 1, 0.46666667)
+offset_left = 287.0
+offset_top = 144.0
+offset_right = 911.0
+offset_bottom = 264.0
+texture = ExtResource("28_7nath")
+expand_mode = 1
+
+[node name="inf1" type="Label" parent="dialog1/TextureRect" unique_id=588352807]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 29.0
+offset_right = 550.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 12
+text = "You were chosen as the one in charge of 
+The job must take about a week to complete, but no time can be wasted 
+- there is a meteor storm coming, and you have to make it back before it starts."

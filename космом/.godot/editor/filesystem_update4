@@ -4,3 +4,5 @@ res://tscn/pickup_item.gd
 res://tscn/character_body_2d.gd
 res://code/game_scene_1.gd
 res://tscn/item_3.gd
+res://tscn/canvas_layer_2.gd
+res://tscn/inf_1.gd
