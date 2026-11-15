@@ -1,0 +1,6 @@
+# Ігнорування кешу Godot 4+
+.godot/
+
+# Системні файли Windows
+desktop.ini
+Thumbs.db
