@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxs4yag6dxegy" path="res://animation/Untitled119_20261115151542.png" id="7_2j81j"]
 [ext_resource type="Texture2D" uid="uid://bm3ry0q7lekmf" path="res://animation/Untitled119_20261115151550.png" id="8_hgs2f"]
 [ext_resource type="Texture2D" uid="uid://dt5jaasj8p44b" path="res://animation/Untitled119_20261115151553.png" id="9_h61kk"]
+[ext_resource type="Script" uid="uid://c20ihdr0ljnvo" path="res://area_2d.gd" id="10_wy0xw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdhsn"]
 radius = 51.0
@@ -48,13 +49,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Control" type="Control" unique_id=1211789662]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
+size = Vector2(155.5, 743.5)
+
+[node name="Control" type="Node2D" unique_id=968650849]
 
 [node name="ПошкодженийКоридорКосмічноїСтанції" type="Sprite2D" parent="." unique_id=303007208]
 position = Vector2(1092, 353)
@@ -79,3 +77,17 @@ position = Vector2(7.9999847, 6.0000057)
 scale = Vector2(0.17740642, 0.2227895)
 sprite_frames = SubResource("SpriteFrames_wy0xw")
 animation = &"run"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1852359442]
+script = ExtResource("10_wy0xw")
+target_scene = "uid://bdh13m4eslay3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=74862891]
+position = Vector2(2096.75, 356.25)
+shape = SubResource("RectangleShape2D_mti6b")
+
+[node name="SpawnRight" type="Marker2D" parent="." unique_id=1954963582]
+position = Vector2(1839, 452)
+
+[node name="SpawnLeft" type="Marker2D" parent="." unique_id=832710388]
+position = Vector2(1963, 437)

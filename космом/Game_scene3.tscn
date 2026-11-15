@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns3rs"]
-size = Vector2(179, 807)
+size = Vector2(64, 692)
 
 [node name="Node2D" type="Node2D" unique_id=2062116433]
 
@@ -82,11 +82,13 @@ animation = &"run"
 position = Vector2(-114, 359)
 script = ExtResource("10_1dcqj")
 target_scene = "uid://d2g8csuxiqr8n"
-target_spawn_name = "SpawnRight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1033596957]
-position = Vector2(79.5, -44.5)
+position = Vector2(137, -25)
 shape = SubResource("RectangleShape2D_ns3rs")
 
 [node name="SpawnRight" type="Marker2D" parent="." unique_id=552077101]
 position = Vector2(66, 404)
+
+[node name="SpawnLeft" type="Marker2D" parent="." unique_id=437429486]
+position = Vector2(185, 413)
