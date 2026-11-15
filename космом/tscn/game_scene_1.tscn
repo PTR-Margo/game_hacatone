@@ -3,12 +3,18 @@
 [ext_resource type="Script" uid="uid://burgwx1bue3wh" path="res://code/game_scene_1.gd" id="1_3pfi2"]
 [ext_resource type="Texture2D" uid="uid://cssxj16nl8oad" path="res://photo_2026-11-15_15-07-10 (2).jpg" id="2_wu76d"]
 [ext_resource type="Script" uid="uid://dbjsef34kelyu" path="res://tscn/character_body_2d.gd" id="3_dsfoa"]
-[ext_resource type="Texture2D" uid="uid://by7lbvccoghmp" path="res://main_player/Untitled27_Restored_20261114145512-removebg-preview.png" id="4_ifdhf"]
+[ext_resource type="Texture2D" uid="uid://dcg66i7vlmteq" path="res://animation/Untitled31_20261115132620.png" id="4_v5o5x"]
+[ext_resource type="Texture2D" uid="uid://cawuqr88aht2q" path="res://animation/Untitled119_20261115151522.png" id="5_gtcx8"]
 [ext_resource type="Texture2D" uid="uid://jifju3vowwfw" path="res://subject/TR.png" id="5_ifdhf"]
 [ext_resource type="Script" uid="uid://dvran4oxk3slo" path="res://tscn/area_2d.gd" id="5_v042m"]
+[ext_resource type="Texture2D" uid="uid://bqvbk7sx5p3ba" path="res://animation/Untitled119_20261115151534.png" id="6_5xcqf"]
+[ext_resource type="Texture2D" uid="uid://5m273nn45y0n" path="res://animation/Untitled119_20261115151537.png" id="7_hjgj3"]
 [ext_resource type="Script" uid="uid://bbqxgblxoqrl3" path="res://tscn/pickup_item.gd" id="7_wu76d"]
 [ext_resource type="Texture2D" uid="uid://dx86jexhk7yib" path="res://subject/camera.png" id="8_av7lm"]
+[ext_resource type="Texture2D" uid="uid://cxs4yag6dxegy" path="res://animation/Untitled119_20261115151542.png" id="8_rcy77"]
+[ext_resource type="Texture2D" uid="uid://bm3ry0q7lekmf" path="res://animation/Untitled119_20261115151550.png" id="9_qjbr0"]
 [ext_resource type="Script" uid="uid://dcee688qt7ogu" path="res://tscn/area_2d_2.gd" id="9_vylfu"]
+[ext_resource type="Texture2D" uid="uid://dt5jaasj8p44b" path="res://animation/Untitled119_20261115151553.png" id="10_8ytie"]
 [ext_resource type="Script" uid="uid://3womv20ufgwg" path="res://tscn/door_3.gd" id="10_u2jpr"]
 [ext_resource type="Texture2D" uid="uid://c8lbe2rwjd0ha" path="res://subject/penlight.png" id="10_ysejp"]
 [ext_resource type="Script" uid="uid://be0n8wktwrej8" path="res://tscn/item_3.gd" id="11_2ocjf"]
@@ -16,6 +22,40 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fg8lg"]
 radius = 101.61
 height = 298.48
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fg8lg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v5o5x")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gtcx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5xcqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hjgj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rcy77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qjbr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8ytie")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fg8lg"]
 size = Vector2(30.5, 724)
@@ -55,10 +95,6 @@ texture = ExtResource("2_wu76d")
 position = Vector2(300, 425)
 script = ExtResource("3_dsfoa")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1026643124]
-scale = Vector2(0.766, 0.806)
-texture = ExtResource("4_ifdhf")
-
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1512079913]
 limit_left = 4
 limit_top = 108
@@ -67,6 +103,12 @@ limit_bottom = 621
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=653008978]
 shape = SubResource("CapsuleShape2D_fg8lg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1985286297]
+position = Vector2(7.9999847, 6.0000057)
+scale = Vector2(0.17740642, 0.2227895)
+sprite_frames = SubResource("SpriteFrames_fg8lg")
+animation = &"idle"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2058692736]
 
