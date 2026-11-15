@@ -9,3 +9,8 @@ res://tscn/door_4.gd
 res://tscn/item_5.gd
 res://tscn/door_5.gd
 res://tscn/door_6.gd
+res://code/game_scene_1.gd
+res://control.tscn
+res://control.gd
+res://VideoScene.tscn
+res://Game_scene2.tscn

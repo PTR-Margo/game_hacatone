@@ -71,6 +71,7 @@ radius = 36.345562
 
 [node name="Game_scene1" type="Node2D" unique_id=1380227353]
 script = ExtResource("1_3pfi2")
+video_scene = "uid://cnqcwcn3rhfbu"
 
 [node name="GeminiGeneratedImageNfjs6Unfjs6Unfjs" type="Sprite2D" parent="." unique_id=957199138]
 position = Vector2(1030, 368)
@@ -97,11 +98,11 @@ shape = SubResource("CapsuleShape2D_fg8lg")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2058692736]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1169228881]
-position = Vector2(1605, 1427)
+position = Vector2(2049, 332)
 shape = SubResource("RectangleShape2D_fg8lg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1109850505]
-position = Vector2(-1272, 386)
+position = Vector2(8, 336)
 shape = SubResource("RectangleShape2D_dsfoa")
 
 [node name="Item" type="Area2D" parent="." unique_id=1989486101]
@@ -245,3 +246,15 @@ texture = ExtResource("20_hjgj3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item6" unique_id=960762216]
 position = Vector2(106, 483)
 shape = SubResource("CircleShape2D_yvsax")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=723887454]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2133959688]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0228844, 1)
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

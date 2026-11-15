@@ -24,4 +24,5 @@ func drop_from_door() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if is_dropped and body is CharacterBody2D:
 		print("Підібрано: ", item_name)
+		get_tree().current_scene.item_collected()
 		queue_free()
