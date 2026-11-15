@@ -1,1 +1,6 @@
 res://tscn/game_scene_1.tscn
+res://tscn/area_2d.gd
+res://tscn/pickup_item.gd
+res://tscn/area_2d_2.gd
+res://tscn/item_3.gd
+res://tscn/door_3.gd

@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://dvran4oxk3slo" path="res://tscn/area_2d.gd" id="5_v042m"]
 [ext_resource type="Script" uid="uid://bbqxgblxoqrl3" path="res://tscn/pickup_item.gd" id="7_wu76d"]
 [ext_resource type="Texture2D" uid="uid://dx86jexhk7yib" path="res://subject/camera.png" id="8_av7lm"]
+[ext_resource type="Script" uid="uid://dcee688qt7ogu" path="res://tscn/area_2d_2.gd" id="9_vylfu"]
+[ext_resource type="Script" uid="uid://3womv20ufgwg" path="res://tscn/door_3.gd" id="10_u2jpr"]
+[ext_resource type="Texture2D" uid="uid://c8lbe2rwjd0ha" path="res://subject/penlight.png" id="10_ysejp"]
+[ext_resource type="Script" uid="uid://be0n8wktwrej8" path="res://tscn/item_3.gd" id="11_2ocjf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fg8lg"]
 radius = 101.61
@@ -20,15 +24,24 @@ size = Vector2(30.5, 724)
 size = Vector2(52, 817)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0unn"]
-radius = 66.0
-height = 132.0
+radius = 33.0
+height = 74.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
-size = Vector2(120, 266)
+size = Vector2(74.5, 248)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yegu"]
-radius = 29.0
-height = 74.0
+radius = 30.0
+height = 68.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
+size = Vector2(41, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm1bc"]
+size = Vector2(51.25, 152.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kxuq"]
+radius = 28.01785
 
 [node name="Game_scene1" type="Node2D" unique_id=1380227353]
 script = ExtResource("1_3pfi2")
@@ -66,16 +79,17 @@ position = Vector2(-1272, 386)
 shape = SubResource("RectangleShape2D_dsfoa")
 
 [node name="Item" type="Area2D" parent="." unique_id=1989486101]
-visible = false
 position = Vector2(1100, 530)
 script = ExtResource("5_v042m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Item" unique_id=298811403]
-shape = SubResource("CapsuleShape2D_a0unn")
-
 [node name="Sprite2D" type="Sprite2D" parent="Item" unique_id=110344646]
+position = Vector2(226, -15)
 scale = Vector2(0.05395508, 0.049560547)
 texture = ExtResource("5_ifdhf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item" unique_id=298811403]
+position = Vector2(223, -3)
+shape = SubResource("CapsuleShape2D_a0unn")
 
 [node name="Door" type="Area2D" parent="." unique_id=331442292 node_paths=PackedStringArray("item_to_drop")]
 script = ExtResource("7_wu76d")
@@ -84,16 +98,51 @@ item_to_drop = NodePath("../Item")
 [node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1082852174]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1283585628]
-position = Vector2(1168, 381)
+position = Vector2(1287.75, 371)
 shape = SubResource("RectangleShape2D_4kxuq")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=2015615853]
+[node name="Item2" type="Area2D" parent="." unique_id=2015615853]
+script = ExtResource("5_v042m")
+item_name = "ЛіхтарикДругий предмет"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=947006813]
-position = Vector2(1241, 552)
+[node name="Sprite2D" type="Sprite2D" parent="Item2" unique_id=1293959452]
+position = Vector2(521.00006, 532)
+scale = Vector2(0.035156187, 0.03280197)
+texture = ExtResource("8_av7lm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item2" unique_id=947006813]
+position = Vector2(521, 534)
 shape = SubResource("CapsuleShape2D_1yegu")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1293959452]
-position = Vector2(1238, 550)
-scale = Vector2(0.027343744, 0.025634773)
-texture = ExtResource("8_av7lm")
+[node name="Door2" type="Area2D" parent="." unique_id=1110929138 node_paths=PackedStringArray("item_to_drop")]
+position = Vector2(515, 458)
+script = ExtResource("9_vylfu")
+item_to_drop = NodePath("../Item2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door2" unique_id=1950070175]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" unique_id=2016583447]
+position = Vector2(10.5, -2)
+shape = SubResource("RectangleShape2D_mti6b")
+
+[node name="Door3" type="Area2D" parent="." unique_id=59077366 node_paths=PackedStringArray("item_to_drop")]
+script = ExtResource("10_u2jpr")
+item_to_drop = NodePath("../Item3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door3" unique_id=907284363]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3" unique_id=1479153529]
+position = Vector2(1710.375, 412.25)
+shape = SubResource("RectangleShape2D_mm1bc")
+
+[node name="Item3" type="Area2D" parent="." unique_id=1615924104]
+script = ExtResource("11_2ocjf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Item3" unique_id=731300899]
+position = Vector2(1736.0001, 522.00006)
+scale = Vector2(0.029907145, 0.029907145)
+texture = ExtResource("10_ysejp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item3" unique_id=914910001]
+position = Vector2(1736, 520)
+shape = SubResource("CircleShape2D_4kxuq")

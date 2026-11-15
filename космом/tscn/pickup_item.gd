@@ -1,8 +1,6 @@
 extends Area2D
 
-# Сюди в інспекторі перетягнемо наш вузол Item
 @export var item_to_drop: Area2D
-
 var is_opened: bool = false
 
 func _ready() -> void:
