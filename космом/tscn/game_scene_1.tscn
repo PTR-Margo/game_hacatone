@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://dfd7iphgfgmrp"]
 
 [ext_resource type="Script" uid="uid://burgwx1bue3wh" path="res://code/game_scene_1.gd" id="1_3pfi2"]
-[ext_resource type="Texture2D" uid="uid://cksnojs532pws" path="res://Gemini_Generated_Image_nfjs6unfjs6unfjs.jpg" id="1_a34bk"]
+[ext_resource type="Texture2D" uid="uid://cssxj16nl8oad" path="res://photo_2026-11-15_15-07-10 (2).jpg" id="2_wu76d"]
 [ext_resource type="Script" uid="uid://dbjsef34kelyu" path="res://tscn/character_body_2d.gd" id="3_dsfoa"]
 [ext_resource type="Texture2D" uid="uid://by7lbvccoghmp" path="res://main_player/Untitled27_Restored_20261114145512-removebg-preview.png" id="4_ifdhf"]
 [ext_resource type="Texture2D" uid="uid://jifju3vowwfw" path="res://subject/TR.png" id="5_ifdhf"]
 [ext_resource type="Script" uid="uid://dvran4oxk3slo" path="res://tscn/area_2d.gd" id="5_v042m"]
 [ext_resource type="Script" uid="uid://bbqxgblxoqrl3" path="res://tscn/pickup_item.gd" id="7_wu76d"]
-[ext_resource type="Script" uid="uid://stl2h4y7pubc" path="res://tscn/scaner.gd" id="8_vylfu"]
-[ext_resource type="Texture2D" uid="uid://3yqgpctgit1n" path="res://subject/scaner.png" id="9_ysejp"]
-[ext_resource type="Texture2D" uid="uid://c8lbe2rwjd0ha" path="res://subject/penlight.png" id="10_ysejp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fg8lg"]
 radius = 101.61
@@ -26,18 +23,15 @@ radius = 66.0
 height = 132.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
-size = Vector2(120, 349)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yegu"]
-radius = 32.0
-height = 100.0
+size = Vector2(120, 266)
 
 [node name="Game_scene1" type="Node2D" unique_id=1380227353]
 script = ExtResource("1_3pfi2")
 
 [node name="GeminiGeneratedImageNfjs6Unfjs6Unfjs" type="Sprite2D" parent="." unique_id=957199138]
-position = Vector2(793, 334)
-texture = ExtResource("1_a34bk")
+position = Vector2(1030, 368)
+scale = Vector2(1, 1.011811)
+texture = ExtResource("2_wu76d")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1190080459]
 position = Vector2(300, 425)
@@ -48,10 +42,10 @@ scale = Vector2(0.766, 0.806)
 texture = ExtResource("4_ifdhf")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1512079913]
-limit_left = 0
-limit_top = 0
-limit_right = 1586
-limit_bottom = 645
+limit_left = 4
+limit_top = 108
+limit_right = 2054
+limit_bottom = 621
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=653008978]
 shape = SubResource("CapsuleShape2D_fg8lg")
@@ -59,57 +53,31 @@ shape = SubResource("CapsuleShape2D_fg8lg")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2058692736]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1169228881]
-position = Vector2(1572.25, 333)
+position = Vector2(1605, 1427)
 shape = SubResource("RectangleShape2D_fg8lg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1109850505]
-position = Vector2(20, 386)
+position = Vector2(-1272, 386)
 shape = SubResource("RectangleShape2D_dsfoa")
 
-[node name="TR" type="Area2D" parent="." unique_id=1989486101]
+[node name="Item" type="Area2D" parent="." unique_id=1989486101]
 visible = false
 position = Vector2(1100, 530)
 script = ExtResource("5_v042m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TR" unique_id=298811403]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item" unique_id=298811403]
 shape = SubResource("CapsuleShape2D_a0unn")
 
-[node name="Sprite2D" type="Sprite2D" parent="TR" unique_id=110344646]
+[node name="Sprite2D" type="Sprite2D" parent="Item" unique_id=110344646]
 scale = Vector2(0.05395508, 0.049560547)
 texture = ExtResource("5_ifdhf")
 
 [node name="Door" type="Area2D" parent="." unique_id=331442292 node_paths=PackedStringArray("item_to_drop")]
 script = ExtResource("7_wu76d")
-item_to_drop = NodePath("../TR")
+item_to_drop = NodePath("../Item")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1082852174]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1283585628]
-position = Vector2(1168, 339.5)
+position = Vector2(1168, 381)
 shape = SubResource("RectangleShape2D_4kxuq")
-
-[node name="scaner" type="Area2D" parent="." unique_id=1706010423]
-script = ExtResource("8_vylfu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scaner" unique_id=958802304]
-position = Vector2(546, 468.99997)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CapsuleShape2D_1yegu")
-
-[node name="Sprite2D" type="Sprite2D" parent="scaner" unique_id=1754602349]
-position = Vector2(549.8125, 468)
-scale = Vector2(0.044128433, 0.04577636)
-texture = ExtResource("9_ysejp")
-
-[node name="penlight" type="Area2D" parent="." unique_id=1971877346]
-position = Vector2(1100, 530)
-script = ExtResource("5_v042m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="penlight" unique_id=1232758569]
-position = Vector2(-201, -15)
-shape = SubResource("CapsuleShape2D_a0unn")
-
-[node name="Sprite2D" type="Sprite2D" parent="penlight" unique_id=118709445]
-position = Vector2(-197, -16)
-scale = Vector2(0.05395508, 0.049560547)
-texture = ExtResource("10_ysejp")
