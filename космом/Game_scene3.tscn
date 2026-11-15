@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bdh13m4eslay3"]
+
+[ext_resource type="Texture2D" uid="uid://ciiejb758cmfh" path="res://Gemini_Generated_Image_pltllcpltllcpltl-_1_.png" id="1_8pjcl"]
+[ext_resource type="Script" uid="uid://dbjsef34kelyu" path="res://tscn/character_body_2d.gd" id="2_dts54"]
+[ext_resource type="Texture2D" uid="uid://dcg66i7vlmteq" path="res://animation/Untitled31_20261115132620.png" id="3_52ew8"]
+[ext_resource type="Texture2D" uid="uid://cawuqr88aht2q" path="res://animation/Untitled119_20261115151522.png" id="4_d0fm1"]
+[ext_resource type="Texture2D" uid="uid://bqvbk7sx5p3ba" path="res://animation/Untitled119_20261115151534.png" id="5_4a25m"]
+[ext_resource type="Texture2D" uid="uid://5m273nn45y0n" path="res://animation/Untitled119_20261115151537.png" id="6_81mrs"]
+[ext_resource type="Texture2D" uid="uid://cxs4yag6dxegy" path="res://animation/Untitled119_20261115151542.png" id="7_qu6cp"]
+[ext_resource type="Texture2D" uid="uid://bm3ry0q7lekmf" path="res://animation/Untitled119_20261115151550.png" id="8_hppy4"]
+[ext_resource type="Texture2D" uid="uid://dt5jaasj8p44b" path="res://animation/Untitled119_20261115151553.png" id="9_2wlny"]
+[ext_resource type="Script" uid="uid://c20ihdr0ljnvo" path="res://area_2d.gd" id="10_1dcqj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sr55x"]
+radius = 51.0
+height = 266.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4p8w1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_52ew8")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d0fm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4a25m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_81mrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qu6cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hppy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2wlny")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns3rs"]
+size = Vector2(179, 807)
+
+[node name="Node2D" type="Node2D" unique_id=2062116433]
+
+[node name="GeminiGeneratedImagePltllcpltllcpltl1" type="Sprite2D" parent="." unique_id=329692442]
+position = Vector2(790, 330)
+texture = ExtResource("1_8pjcl")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=771382989]
+modulate = Color(1, 0.6045386, 0.6025194, 1)
+position = Vector2(300, 425)
+script = ExtResource("2_dts54")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=180500381]
+limit_left = 4
+limit_top = 108
+limit_right = 2169
+limit_bottom = 621
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1191955363]
+shape = SubResource("CapsuleShape2D_sr55x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=756526572]
+position = Vector2(7.9999847, 6.0000057)
+scale = Vector2(0.17740642, 0.2227895)
+sprite_frames = SubResource("SpriteFrames_4p8w1")
+animation = &"run"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=43483818]
+position = Vector2(-114, 359)
+script = ExtResource("10_1dcqj")
+target_scene = "uid://d2g8csuxiqr8n"
+target_spawn_name = "SpawnRight"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1033596957]
+position = Vector2(79.5, -44.5)
+shape = SubResource("RectangleShape2D_ns3rs")
+
+[node name="SpawnRight" type="Marker2D" parent="." unique_id=552077101]
+position = Vector2(66, 404)

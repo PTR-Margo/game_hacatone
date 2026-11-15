@@ -2,11 +2,51 @@
 
 [ext_resource type="Texture2D" uid="uid://bya1xkufi50l5" path="res://Пошкоджений_коридор_космічної_станції.png" id="1_ra5m4"]
 [ext_resource type="Script" uid="uid://dbjsef34kelyu" path="res://tscn/character_body_2d.gd" id="2_pkdnj"]
-[ext_resource type="Texture2D" uid="uid://by7lbvccoghmp" path="res://main_player/Untitled27_Restored_20261114145512-removebg-preview.png" id="3_2c1c5"]
+[ext_resource type="Texture2D" uid="uid://dcg66i7vlmteq" path="res://animation/Untitled31_20261115132620.png" id="3_gdhsn"]
+[ext_resource type="Texture2D" uid="uid://cawuqr88aht2q" path="res://animation/Untitled119_20261115151522.png" id="4_wy0xw"]
+[ext_resource type="Texture2D" uid="uid://bqvbk7sx5p3ba" path="res://animation/Untitled119_20261115151534.png" id="5_10xi3"]
+[ext_resource type="Texture2D" uid="uid://5m273nn45y0n" path="res://animation/Untitled119_20261115151537.png" id="6_dywix"]
+[ext_resource type="Texture2D" uid="uid://cxs4yag6dxegy" path="res://animation/Untitled119_20261115151542.png" id="7_2j81j"]
+[ext_resource type="Texture2D" uid="uid://bm3ry0q7lekmf" path="res://animation/Untitled119_20261115151550.png" id="8_hgs2f"]
+[ext_resource type="Texture2D" uid="uid://dt5jaasj8p44b" path="res://animation/Untitled119_20261115151553.png" id="9_h61kk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p4xr"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdhsn"]
 radius = 51.0
 height = 266.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wy0xw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gdhsn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wy0xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_10xi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dywix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2j81j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hgs2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h61kk")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
 
 [node name="Control" type="Control" unique_id=1211789662]
 layout_mode = 3
@@ -20,20 +60,22 @@ grow_vertical = 2
 position = Vector2(1092, 353)
 texture = ExtResource("1_ra5m4")
 
-[node name="Player" type="CharacterBody2D" parent="ПошкодженийКоридорКосмічноїСтанції" unique_id=533862719]
-modulate = Color(0.9999959, 0.529834, 0.51115096, 1)
-position = Vector2(-300, 100)
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1481907240]
+modulate = Color(1, 0.60051894, 0.58493024, 1)
+position = Vector2(300, 425)
 script = ExtResource("2_pkdnj")
 
-[node name="Sprite2D" type="Sprite2D" parent="ПошкодженийКоридорКосмічноїСтанції/Player" unique_id=1519524599]
-scale = Vector2(0.766, 0.806)
-texture = ExtResource("3_2c1c5")
-
-[node name="Camera2D" type="Camera2D" parent="ПошкодженийКоридорКосмічноїСтанції/Player" unique_id=889402506]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=674090523]
 limit_left = 4
 limit_top = 108
 limit_right = 2054
 limit_bottom = 621
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ПошкодженийКоридорКосмічноїСтанції/Player" unique_id=1258617695]
-shape = SubResource("CapsuleShape2D_2p4xr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1920442811]
+shape = SubResource("CapsuleShape2D_gdhsn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=2028703134]
+position = Vector2(7.9999847, 6.0000057)
+scale = Vector2(0.17740642, 0.2227895)
+sprite_frames = SubResource("SpriteFrames_wy0xw")
+animation = &"run"
